@@ -1,0 +1,40 @@
+ pipeline{
+     agent{
+         label "linux"
+     }
+     stages{
+         stage("A"){
+             steps{
+                 echo "========executing A========"
+             }
+             post{
+                 always{
+                     echo "========always========"
+                 }
+                 success{
+                     echo "========A executed successfully========"
+                 }
+                 failure{
+                     echo "========A execution failed========"
+                 }
+             }
+             steps{
+                 echo "========executing B========"
+             }
+             steps{
+                 echo "========executing C========"
+             }
+         }
+     }
+     post{
+         always{
+             echo "========always========"
+         }
+         success{
+             echo "========pipeline executed successfully ========"
+         }
+         failure{
+             echo "========pipeline execution failed========"
+         }
+     }
+ }

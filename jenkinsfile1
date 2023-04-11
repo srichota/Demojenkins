@@ -3,22 +3,23 @@
          label "linux"
      }
      stages{
-         stage("A"){
+         stage("echo a line"){
              steps{
-                 echo "========executing A========"
+                 echo 'this is step one'
              }
-             post{
-                 always{
-                     echo "========always========"
-                 }
-                 success{
-                     echo "========A executed successfully========"
-                 }
-                 failure{
-                     echo "========A execution failed========"
-                 }
-             
+           }
+           stage("run a command"){
+             steps{
+                 sh 'pwd'
              }
+           }
+           stage("run a multiple command"){
+             steps{
+                 sh '''pwd
+                      ls
+                  '''
+             }
+           }
          }
      }
      post{

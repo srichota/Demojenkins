@@ -17,12 +17,7 @@
                  failure{
                      echo "========A execution failed========"
                  }
-             }
-             steps{
-                 echo "========executing B========"
-             }
-             steps{
-                 echo "========executing C========"
+             
              }
          }
      }
